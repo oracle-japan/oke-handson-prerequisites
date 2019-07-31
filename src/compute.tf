@@ -70,3 +70,7 @@ resource "null_resource" "remote-exec" {
 output "oke-client" {
   value = ["${oci_core_instance.oke-client.public_ip}"]
 }
+
+output "private_key_pem"{
+  value = ["${tls_private_key.public_private_key_pair.private_key_pem}"]
+}
