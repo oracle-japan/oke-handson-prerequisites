@@ -12,24 +12,11 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND
  */
 
-variable "tenancy_ocid" {
-  default = ""
-}
+variable "tenancy_ocid" {}
 
-variable "compartment_ocid" {
-  default = ""
-}
+variable "compartment_ocid" {}
 
-variable "region" {
-  default = ""
-}
-#variable "ssh_private_key" {
-#  default = ""
-#}
-
-#variable "ssh_public_key" {
-#  default = ""
-#}
+variable "region" {}
 
 variable "instance_image_ocids"{
   type = "map"
