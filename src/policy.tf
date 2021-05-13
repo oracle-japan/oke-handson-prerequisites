@@ -14,14 +14,14 @@
 
 # Policy for OKE Service
 resource "oci_identity_policy" "OKE_Policy" {
-    # Required
-    compartment_id = "${var.tenancy_ocid}"
-    description = "${var.policy_description}"
-    name = "${var.policy_name}"
-    statements = "${var.policy_statements}"
-
-    # Optional
-    #defined_tags = {"Operations.CostCenter"= "42"}
-    #freeform_tags = {"Department"= "Finance"}
-    #version_date = "${var.policy_version_date}"
+  # Required
+  compartment_id = var.tenancy_ocid
+  description    = var.policy_description
+  name           = var.policy_name
+  statements     = var.policy_statements
+  # Optional
+  #defined_tags = {"Operations.CostCenter"= "42"}
+  #freeform_tags = {"Department"= "Finance"}
+  #version_date = "${var.policy_version_date}"
 }
+

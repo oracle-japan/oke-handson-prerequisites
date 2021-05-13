@@ -12,14 +12,17 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND
  */
 
-variable "tenancy_ocid" {}
+variable "tenancy_ocid" {
+}
 
-variable "compartment_ocid" {}
+variable "compartment_ocid" {
+}
 
-variable "region" {}
+variable "region" {
+}
 
-variable "instance_image_ocids"{
-  type = "map"
+variable "instance_image_ocids" {
+  type = map(string)
   default = {
     us-ashburn-1   = "ocid1.image.oc1.iad.aaaaaaaa4bfsnhv2cd766tiw5oraw2as7g27upxzvu7ynqwipnqfcfwqskla"
     ap-tokyo-1     = "ocid1.image.oc1.ap-tokyo-1.aaaaaaaamc2244t7h3gwrrci5z4ni2jsulwcg76gugupkb6epzrypawcz4hq"
@@ -32,13 +35,13 @@ variable "instance_image_ocids"{
 }
 
 provider "oci" {
-  version              = ">= 3.0.0"
-  tenancy_ocid         = "${var.tenancy_ocid}"
-  region               = "${var.region}"
+  version      = ">= 3.0.0"
+  tenancy_ocid = var.tenancy_ocid
+  region       = var.region
 }
 
 data "oci_identity_availability_domains" "ashburn" {
-  compartment_id       = "${var.tenancy_ocid}"
+  compartment_id = var.tenancy_ocid
 }
 
 ### Network Variables ###
@@ -66,7 +69,7 @@ variable "instance_shape" {
 ### Policy Variables ###
 
 variable "policy_description" {
-  default = "Allow service OKE to manage all-resources in tenancy" 
+  default = "Allow service OKE to manage all-resources in tenancy"
 }
 
 variable "policy_name" {
@@ -74,5 +77,7 @@ variable "policy_name" {
 }
 
 variable "policy_statements" {
+  type = list(string)
   default = ["Allow service OKE to manage all-resources in tenancy"]
 }
+
