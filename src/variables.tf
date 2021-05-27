@@ -66,18 +66,3 @@ variable "instance_shape" {
   default = "VM.Standard2.1"
 }
 
-### Policy Variables ###
-
-variable "policy_description" {
-  default = "Allow service OKE to manage all-resources in tenancy"
-}
-
-variable "policy_name" {
-  default = "OKE_Policy"
-}
-
-variable "policy_statements" {
-  type = list(string)
-  default = ["Allow service OKE to manage all-resources in tenancy"]
-}
-
