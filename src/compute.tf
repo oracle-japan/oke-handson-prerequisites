@@ -59,8 +59,6 @@ resource "null_resource" "remote-exec" {
       "sudo /bin/systemctl restart docker.service",
       "sudo yum -y install python3",
       "sudo pip3 install oci-cli",
-      "chmod +x install.sh",
-      "./install.sh --accept-all-defaults --oci-cli-version 2.7.0",
       "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl",
       "chmod +x ./kubectl",
       "sudo mv ./kubectl /usr/local/bin/kubectl",
@@ -75,5 +73,6 @@ output "oke-client" {
 
 output "private_key_pem" {
   value = [tls_private_key.public_private_key_pair.private_key_pem]
+  sensitive = true
 }
 
