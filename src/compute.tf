@@ -21,7 +21,12 @@ resource "oci_core_instance" "oke-client" {
   availability_domain = data.oci_identity_availability_domains.ashburn.availability_domains[0]["name"]
   compartment_id      = var.compartment_ocid
   display_name        = "oke-client"
-  shape               = var.instance_shape
+  shape               = "VM.Standard.E3.Flex"
+
+   shape_config {
+    ocpus         = 1
+    memory_in_gbs = 16
+  }
 
   create_vnic_details {
     subnet_id        = oci_core_subnet.subnet1.id
@@ -58,7 +63,7 @@ resource "null_resource" "remote-exec" {
       "sudo usermod -aG docker opc",
       "sudo /bin/systemctl restart docker.service",
       "sudo yum -y install python3",
-      "sudo pip3 install oci-cli",
+      "sudo yum install python36-oci-cli -y",
       "curl -LO https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl",
       "chmod +x ./kubectl",
       "sudo mv ./kubectl /usr/local/bin/kubectl",

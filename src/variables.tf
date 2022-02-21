@@ -24,13 +24,13 @@ variable "region" {
 variable "instance_image_ocids" {
   type = map(string)
   default = {
-    us-ashburn-1   = "ocid1.image.oc1.iad.aaaaaaaa4bfsnhv2cd766tiw5oraw2as7g27upxzvu7ynqwipnqfcfwqskla"
-    ap-tokyo-1     = "ocid1.image.oc1.ap-tokyo-1.aaaaaaaamc2244t7h3gwrrci5z4ni2jsulwcg76gugupkb6epzrypawcz4hq"
-    ap-seoul-1     = "ocid1.image.oc1.ap-seoul-1.aaaaaaaalhbuvdg453ddyhvnbk4jsrw546zslcfyl7vl4oxfgplss3ovlm4q"
-    ca-toronto-1   = "ocid1.image.oc1.ca-toronto-1.aaaaaaaakjkxzw33dcocgu2oylpllue34tjtyngwru7pcpqn4qh2nwon7n7a"
-    eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaandqh4s7a3oe3on6osdbwysgddwqwyghbx4t4ryvtcwk5xikkpvhq"
-    uk-london-1    = "ocid1.image.oc1.uk-london-1.aaaaaaaa2xe7cufdwkksdazshtmqaddgd72kdhiyoqurtoukjklktf4nxkbq"
-    us-phoenix-1   = "ocid1.image.oc1.phx.aaaaaaaavtjpvg4njutkeu7rf7c5lay6wdbjhd4cxis774h7isqd6gktqzoa"
+    us-ashburn-1   = "ocid1.image.oc1.iad.aaaaaaaaoi4aun3xgz7cwwzrwkiunk6dpi7htuicu7aktsgulbnjdzb6l6aq"
+    ap-tokyo-1     = "ocid1.image.oc1.ap-tokyo-1.aaaaaaaahzjia7mnvnoufz3fk3zt4mbfumixf5w7intekiazav6bu3zn6x7q"
+    ap-seoul-1     = "ocid1.image.oc1.ap-seoul-1.aaaaaaaa462u6ptrhf55j22ulq5h5u3jaeph435rm37n7kosjoblbaer3r4a"
+    ca-toronto-1   = "ocid1.image.oc1.ca-toronto-1.aaaaaaaaxwee4kyxou7dol2xrtp2smfcdmhqge23b4uhqi6llhnqjf5ojxrq"
+    eu-frankfurt-1 = "ocid1.image.oc1.eu-frankfurt-1.aaaaaaaa7heh3um5n35rrnunaiiijbtccoumkio4sjfuxqzuv5zbp56sej6q"
+    uk-london-1    = "ocid1.image.oc1.uk-london-1.aaaaaaaaxdpy4ydhk6scrcq3fsueyp3zxfgtn6rcyw22ziddhyiwb3l43oja"
+    us-phoenix-1   = "ocid1.image.oc1.phx.aaaaaaaayvtrc3bfgi2xnzswqfws3syrnte7s37m3s6wdy62ynmk4bhmx5ca"
   }
 }
 
@@ -60,9 +60,5 @@ variable "subnet_cidr_w1" {
 
 variable "subnet_cidr_w2" {
   default = "10.0.20.0/24"
-}
-
-variable "instance_shape" {
-  default = "VM.Standard2.1"
 }
 
